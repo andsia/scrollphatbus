@@ -1,6 +1,7 @@
 import requests
 import signal
 import time
+import schedule
 
 import scrollphathd
 from scrollphathd.fonts import font3x5
@@ -23,9 +24,8 @@ def getTime():
         scrollphathd.scroll()
         time.sleep(0.04)
     
-while True:
-    getTime()
-    time.sleep(10)
+while True
+    schedule.every(1).minutes.do(getTime)
         
 
 
