@@ -1,8 +1,6 @@
 import requests
 import signal
 import time
-import schedule
-
 import scrollphathd
 from scrollphathd.fonts import font3x5
 
@@ -16,16 +14,15 @@ def getTime():
         my_stops.append(y)
         my_stops.sort()
         str1 = ', '.join(my_stops) +', '
-        
-    while True:
-        print(str1)
-        scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
-        scrollphathd.show()
-        scrollphathd.scroll()
-        time.sleep(0.04)
+
+    print(str1)
+    scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
+    text_width = scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
+    scrollphathd.flip(x,y)
+    scrollphathd.show()
+    scrollphathd.scroll()
+    scrollphathd.clear_rect(0, 0, text_width, 7)
     
-while True
-    schedule.every(1).minutes.do(getTime)
-        
-
-
+while True:
+    getTime() 
+    
