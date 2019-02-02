@@ -15,14 +15,13 @@ def getTime():
         my_stops.sort()
         str1 = ', '.join(my_stops) +', '
 
-    print(str1)
-    scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
-    text_width = scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
-    scrollphathd.flip(x,y)
-    scrollphathd.show()
-    scrollphathd.scroll()
-    scrollphathd.clear_rect(0, 0, text_width, 7)
-    
+    while True:
+        scrollphathd.write_string(str1, y=1, font=font3x5, brightness=0.5)
+        scrollphathd.flip(x,y)
+        scrollphathd.scroll()    
+        scrollphathd.show()
+        print(str1)
+        
 while True:
     getTime() 
     
